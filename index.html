@@ -6,7 +6,7 @@
   <title>Flash</title>
   <style>
     :root {
-      --sidebar-width: 50px; /* Slick 50px width */
+      --sidebar-width: 50px;
       --bg-dark: #1e2230;
       --bg-main: #161925;
       --accent: #4c8bf5;
@@ -18,7 +18,7 @@
     body {
       margin: 0;
       padding: 0;
-      display: flex;
+      display: flex; /* Sidebar sits next to content */
       height: 100vh;
       font-family: 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-main);
@@ -26,7 +26,7 @@
       overflow: hidden;
     }
 
-    /* --- SLICK SIDEBAR --- */
+    /* --- SIDEBAR --- */
     .sidebar {
       width: var(--sidebar-width);
       background-color: var(--bg-dark);
@@ -36,42 +36,31 @@
       padding-top: 20px;
       border-right: 1px solid rgba(255,255,255,0.05);
       z-index: 10;
+      flex-shrink: 0;
     }
 
     .nav-btn {
       width: 100%;
-      height: 50px; /* Square buttons */
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
       color: var(--text-dim);
+      text-decoration: none;
       transition: all 0.2s ease;
-      cursor: pointer;
       position: relative;
     }
 
-    .nav-btn:hover {
-      color: white;
-      background: rgba(255,255,255,0.05);
-    }
-
-    .nav-btn.active {
-      color: var(--accent);
-    }
-
-    /* Small indicator line for active state */
+    .nav-btn:hover { color: white; background: rgba(255,255,255,0.05); }
+    
+    .nav-btn.active { color: var(--accent); }
     .nav-btn.active::before {
       content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      bottom: 10px;
-      width: 3px;
-      background-color: var(--accent);
-      border-radius: 0 4px 4px 0;
+      position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
+      background-color: var(--accent); border-radius: 0 4px 4px 0;
     }
 
-    /* --- MAIN AREA --- */
+    /* --- MAIN CONTENT --- */
     .main-content {
       flex: 1;
       display: flex;
@@ -79,7 +68,6 @@
       position: relative;
     }
 
-    /* Search Header */
     .top-bar {
       height: 60px;
       display: flex;
@@ -101,69 +89,36 @@
       transition: 0.3s;
     }
 
-    .search-container:focus-within {
-      border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .search-input {
-      background: transparent;
-      border: none;
-      color: white;
-      outline: none;
-      flex: 1;
-      margin-left: 10px;
-      font-size: 0.9rem;
-    }
-
-    /* --- IFRAME DISPLAY --- */
-    #viewFrame {
-      flex: 1;
-      width: 100%;
-      border: none;
-      background: white; /* White bg for web pages */
-    }
-
-    /* Placeholder when no search is active */
-    .placeholder-message {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: var(--text-dim);
-    }
+    .search-container:focus-within { border-color: var(--accent); background: rgba(255, 255, 255, 0.1); }
+    .search-input { background: transparent; border: none; color: white; outline: none; flex: 1; margin-left: 10px; font-size: 0.9rem; }
+    #viewFrame { flex: 1; width: 100%; border: none; background: white; }
+    .placeholder-message { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-dim); }
   </style>
 </head>
 <body>
 
   <aside class="sidebar">
-    <div class="nav-btn active" onclick="loadPage('home')" title="Home">
+    <a href="index.html" class="nav-btn active" title="Home">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-    </div>
-    
-    <div class="nav-btn" onclick="loadPage('games')" title="Games">
+    </a>
+    <a href="games.html" class="nav-btn" title="Games">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
-    </div>
-
-    <div class="nav-btn" onclick="loadPage('tools')" title="Tools">
+    </a>
+    <a href="tools.html" class="nav-btn" title="Tools">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-    </div>
+    </a>
   </aside>
 
   <main class="main-content">
     <div class="top-bar">
       <div class="search-container">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f9d" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search (Bing) or enter URL..." onkeypress="handleEnter(event)">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search via Flash Plus ✨" onkeypress="handleEnter(event)">
       </div>
     </div>
-
     <iframe id="viewFrame" src="about:blank"></iframe>
-    
     <div id="placeholder" class="placeholder-message" style="position:absolute; top:60px; left:0; right:0; bottom:0; background:var(--bg-main); z-index:5;">
-      <h2>Flash Search</h2>
-      <p>Now avalible with Flash Plus ✨</p>
+      <h2>Search via Flash Plus ✨</h2>
     </div>
   </main>
 
@@ -172,33 +127,15 @@
       if (e.key === 'Enter') {
         const query = document.getElementById('searchInput').value;
         const frame = document.getElementById('viewFrame');
-        const placeholder = document.getElementById('placeholder');
+        document.getElementById('placeholder').style.display = 'none';
         
-        // Hide placeholder
-        placeholder.style.display = 'none';
-
-        // Check if user typed a URL or a search query
         if (query.includes('.') && !query.includes(' ')) {
-           // Likely a URL
            frame.src = query.startsWith('http') ? query : 'https://' + query;
         } else {
-           // Search Query (Using Bing as it's more iframe-friendly than Google/DDG)
-           // If Bing blocks it, try 'https://en.wikipedia.org/wiki/' + query for testing
            frame.src = "https://www.bing.com/search?q=" + encodeURIComponent(query);
         }
       }
     }
-
-    // Optional: Logic to switch active class on sidebar
-    const buttons = document.querySelectorAll('.nav-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        // You can add logic here to switch content based on button click
-      });
-    });
   </script>
-
 </body>
 </html>
