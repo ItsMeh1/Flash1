@@ -20,3 +20,5 @@ Welcome to Flash!
 
 
 # Updates
+
+Flash update 1.0: Added Games Hub (Currently 0 games.) RUNNING ON FR0NT END.
