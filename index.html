@@ -116,7 +116,11 @@
         <input type="text" id="searchInput" class="search-input" placeholder="Search via Flash Plus ✨" onkeypress="handleEnter(event)">
       </div>
     </div>
-    <iframe id="viewFrame" src="about:blank"></iframe>
+    <iframe 
+      id="viewFrame" 
+      src="about:blank">
+      sandbox="allow-scripts allow-same-origin allow-pointer-lock"
+    </iframe>
     <div id="placeholder" class="placeholder-message" style="position:absolute; top:60px; left:0; right:0; bottom:0; background:var(--bg-main); z-index:5;">
       <h2>Search via Flash Plus ✨</h2>
     </div>
