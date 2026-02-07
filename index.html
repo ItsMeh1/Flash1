@@ -3,97 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flash</title>
-  <style>
-    :root {
-      --sidebar-width: 50px;
-      --bg-dark: #1e2230;
-      --bg-main: #161925;
-      --accent: #4c8bf5;
-      --text-dim: #8a8f9d;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex; /* Sidebar sits next to content */
-      height: 100vh;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-main);
-      color: white;
-      overflow: hidden;
-    }
-
-    /* --- SIDEBAR --- */
-    .sidebar {
-      width: var(--sidebar-width);
-      background-color: var(--bg-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-      border-right: 1px solid rgba(255,255,255,0.05);
-      z-index: 10;
-      flex-shrink: 0;
-    }
-
-    .nav-btn {
-      width: 100%;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--text-dim);
-      text-decoration: none;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    .nav-btn:hover { color: white; background: rgba(255,255,255,0.05); }
-    
-    .nav-btn.active { color: var(--accent); }
-    .nav-btn.active::before {
-      content: '';
-      position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
-      background-color: var(--accent); border-radius: 0 4px 4px 0;
-    }
-
-    /* --- MAIN CONTENT --- */
-    .main-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .top-bar {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
-      background: var(--bg-dark);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .search-container {
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 5px 15px;
-      width: 100%;
-      max-width: 500px;
-      border: 1px solid transparent;
-      transition: 0.3s;
-    }
-
-    .search-container:focus-within { border-color: var(--accent); background: rgba(255, 255, 255, 0.1); }
-    .search-input { background: transparent; border: none; color: white; outline: none; flex: 1; margin-left: 10px; font-size: 0.9rem; }
-    #viewFrame { flex: 1; width: 100%; border: none; background: white; }
-    .placeholder-message { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-dim); }
-  </style>
+  <title>Home | Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -113,16 +24,14 @@
     <div class="top-bar">
       <div class="search-container">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f9d" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search via Flash Plus ✨" onkeypress="handleEnter(event)">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search (Bing) or enter URL..." onkeypress="handleEnter(event)">
       </div>
     </div>
-    <iframe 
-      id="viewFrame" 
-      src="about:blank">
-      sandbox="allow-scripts allow-same-origin allow-pointer-lock"
-    </iframe>
+    
+    <iframe id="viewFrame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms"></iframe>
+
     <div id="placeholder" class="placeholder-message" style="position:absolute; top:60px; left:0; right:0; bottom:0; background:var(--bg-main); z-index:5;">
-      <h2>Search via Flash Plus ✨</h2>
+      <h2>Ready to Search</h2>
     </div>
   </main>
 
