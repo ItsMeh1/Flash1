@@ -1,0 +1,223 @@
+:root {
+  --sidebar-width: 50px;
+  --bg-dark: #1e2230;
+  --bg-main: #161925;
+  --accent: #4c8bf5;     /* Blue accent */
+  --accent-cyan: #00f2fe; /* Cyan accent for games/tools headers */
+  --text-dim: #8a8f9d;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-hover: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: radial-gradient(circle at top left, #1a1a2e, #16213e);
+  color: white;
+  overflow: hidden; /* Prevent body scroll, handle inside containers */
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn.active {
+  color: var(--accent);
+}
+
+.nav-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  background-color: var(--accent);
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- LAYOUT CONTAINERS --- */
+
+/* For Index (Iframe View) */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+/* For Games/Tools (Scrollable Grid View) */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* --- HEADERS & TYPOGRAPHY --- */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #fff, var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- SEARCH BARS --- */
+
+/* Top bar style (Index) */
+.top-bar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: var(--bg-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px; /* Fully rounded for games/tools, slightly adjusted for index below */
+  padding: 5px 15px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+/* Specific adjustment for Index top bar search to look more like a browser bar */
+.top-bar .search-container {
+  max-width: 500px;
+  border-radius: 8px; 
+  border-color: transparent;
+}
+
+.search-container:focus-within {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  flex: 1;
+  margin-left: 10px;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+/* --- IFRAME ELEMENTS (Index) --- */
+#viewFrame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: white;
+}
+
+.placeholder-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-dim);
+}
+
+/* --- CARD GRID (Games/Tools) --- */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.nav-card {
+  text-decoration: none;
+  color: white;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-card:hover {
+  background: var(--card-hover);
+  transform: translateY(-5px);
+  border-color: var(--accent-cyan);
+}
+
+.nav-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.nav-card span {
+  font-weight: 500;
+  text-align: center;
+}
+
+/* --- UTILITIES --- */
+.hidden {
+  display: none;
+}
