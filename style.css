@@ -221,3 +221,86 @@ h1 {
 .hidden {
   display: none;
 }
+
+/* --- UPDATES PAGE STYLES --- */
+
+.updates-container {
+  width: 100%;
+  max-width: 800px; /* Limits width for better readability */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.update-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.update-card:hover {
+  transform: translateY(-3px);
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+
+/* The colorful line on the left of the card */
+.update-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
+}
+
+/* Header section of the card */
+.update-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.version-badge {
+  background: var(--accent);
+  color: #1a1a2e; /* Dark text on bright badge */
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.update-date {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.update-card h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.update-content {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.update-content ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.update-content li {
+  margin-bottom: 8px;
+}
