@@ -3,145 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flash | G </title>
-  <style>
-    :root {
-      --card-bg: rgba(255, 255, 255, 0.1);
-      --card-hover: rgba(255, 255, 255, 0.2);
-      --accent: #00f2fe;
-      --sidebar-width: 50px;
-      --bg-dark: #1e2230;
-      --text-dim: #8a8f9d;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: row; /* Changed to row for sidebar */
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background: radial-gradient(circle at top left, #1a1a2e, #16213e);
-      color: #fff;
-    }
-
-    /* --- SIDEBAR STYLES --- */
-    .sidebar {
-      width: var(--sidebar-width);
-      background-color: var(--bg-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-      border-right: 1px solid rgba(255,255,255,0.05);
-      flex-shrink: 0;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-    }
-
-    .nav-btn {
-      width: 100%;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--text-dim);
-      text-decoration: none;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    .nav-btn:hover { color: white; background: rgba(255,255,255,0.05); }
-    .nav-btn.active { color: var(--accent); }
-    .nav-btn.active::before {
-      content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
-      background-color: var(--accent); border-radius: 0 4px 4px 0;
-    }
-
-    /* --- MAIN PAGE CONTENT --- */
-    .content-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      overflow-y: auto;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #fff, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .search-container { margin-bottom: 40px; position: relative; }
-
-    #siteSearch {
-      width: 100%;
-      padding: 15px 25px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-size: 1.1rem;
-      outline: none;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-    }
-
-    #siteSearch:focus {
-      border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-    }
-
-    .nav-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      width: 100%;
-      max-width: 1100px;
-    }
-
-    .nav-card {
-      text-decoration: none;
-      color: white;
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-card:hover {
-      background: var(--card-hover);
-      transform: translateY(-5px);
-      border-color: var(--accent);
-    }
-
-    .nav-card img {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    .hidden { display: none; }
-  </style>
+  <title>Flash | G</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -159,9 +22,9 @@
 
   <div class="content-wrapper">
     <header>
-      <h1>Flash Games & Tools</h1>
+      <h1>Flash Games</h1>
       <div class="search-container">
-        <input type="text" id="siteSearch" placeholder="Search your links..." onkeyup="filterLinks()">
+        <input type="text" id="siteSearch" class="search-input" placeholder="Search your links..." onkeyup="filterLinks()">
       </div>
     </header>
 
@@ -171,7 +34,7 @@
         <span>Sendou</span>
       </a>
       <a href="splatoon3.html" class="nav-card">
-        <img src="https://avatars.githubusercontent.com/u/123000233?s=200&v=4" alt="Splatoon">
+        <img src="https://via.placeholder.com/50" alt="Splatoon">
         <span>Splatoon3.ink</span>
       </a>
       <a href="phantom.html" class="nav-card">
