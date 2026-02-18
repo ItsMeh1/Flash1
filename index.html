@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash | Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-[#0a0a0c] text-slate-200 overflow-x-hidden">
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-20 flex flex-col items-center min-h-screen">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-400 mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                </span>
+                System Online v2.4
+            </div>
+            <h1 class="text-6xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 mb-4">
+                FLASH<span class="text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">⚡</span>
+            </h1>
+            <p class="text-lg text-slate-500 max-w-lg mx-auto">Gateway to the unblocked web. Safe. Fast. Secure.</p>
+        </div>
+
+        <div class="w-full max-w-xl relative group mb-20 z-10">
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-yellow-500 rounded-2xl opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
+            <div class="relative flex items-center bg-[#16161a] border border-white/10 rounded-xl p-4 shadow-2xl">
+                <i data-lucide="search" class="text-slate-500 ml-2 mr-4 w-5 h-5"></i>
+                <input type="text" id="siteSearch" placeholder="Search experiences..." class="w-full bg-transparent text-lg placeholder:text-slate-600 focus:outline-none text-white" onkeyup="filterApps()">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full" id="appGrid">
+            <!-- Browser Card -->
+            <a href="browser.html" class="app-card group relative bg-[#16161a] border border-white/5 rounded-2xl p-6 hover:border-white/20 hover:bg-[#1c1c21] transition-all duration-300 hover:-translate-y-1">
+                <div class="relative flex items-start gap-5">
+                    <div class="w-16 h-16 rounded-xl bg-blue-400/10 flex items-center justify-center border border-white/5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="globe" class="text-blue-400 w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-yellow-400">Flash Search+</h3>
+                            <i data-lucide="arrow-right" class="text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <p class="text-sm text-slate-500">Secure browsing powered by Ultraviolet.</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Games Card -->
+            <a href="games.html" class="app-card group relative bg-[#16161a] border border-white/5 rounded-2xl p-6 hover:border-white/20 hover:bg-[#1c1c21] transition-all duration-300 hover:-translate-y-1">
+                <div class="relative flex items-start gap-5">
+                    <div class="w-16 h-16 rounded-xl bg-purple-400/10 flex items-center justify-center border border-white/5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="gamepad-2" class="text-purple-400 w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-yellow-400">Games+</h3>
+                            <i data-lucide="arrow-right" class="text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <p class="text-sm text-slate-500">Unblocked collection updated daily.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function filterApps() {
+            const query = document.getElementById('siteSearch').value.toLowerCase();
+            document.querySelectorAll('.app-card').forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                card.style.display = title.includes(query) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
