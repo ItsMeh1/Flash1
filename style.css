@@ -176,62 +176,51 @@ h1 {
   color: var(--text-dim);
 }
 
-/* --- UPDATED CARD GRID (Games/Tools) --- */
+/* --- CARD GRID (Games/Tools) --- */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
 
 .nav-card {
-text-decoration: none;
-color: white;
-background: var(--card-bg);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 16px;
-overflow: hidden; /* Important so image fills cleanly */
-display: flex;
-flex-direction: column;
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* REMOVE padding */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 280px; /* Makes card taller */
 }
 
 .nav-card:hover {
-background: var(--card-hover);
-transform: translateY(-5px);
-border-color: var(--accent-cyan);
+  background: var(--card-hover);
+  transform: translateY(-5px);
+  border-color: var(--accent-cyan);
 }
 
-/* Make image fill top of card */
+
 .nav-card img {
-width: 100%;
-height: 160px;
-object-fit: cover;
-display: block;
+  width: 60%;
+  height: 90%; /* Bigger */
+  object-fit: cover;
+  display: block;
+  align-self: center;
 }
 
-/* Card text content wrapper (add this div inside each card) */
-.card-content {
-padding: 15px;
-display: flex;
-flex-direction: column;
-gap: 8px;
-}
 
-.card-title {
-font-weight: 600;
-font-size: 1rem;
+.nav-card span {
+  font-weight: 500;
+  text-align: center;
 }
-
-/* Divider line */
-.card-divider {
-height: 1px;
-width: 100%;
-background: rgba(255, 255, 255, 0.15);
-}
-
-.card-desc {
-font-size: 0.85rem;
-color: var(--text-dim);
-line-height: 1.4;
-margin: 0;
-}
-
 
 /* --- UTILITIES --- */
 .hidden {
