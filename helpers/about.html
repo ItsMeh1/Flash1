@@ -6,19 +6,107 @@
     <title>Flash | About</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="bg-[#0a0a0c] text-slate-200 flex items-center justify-center min-h-screen">
-    <div class="text-center p-6 animate-in zoom-in">
-            <h1 class="text-6xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 mb-4">
-                FLASH<span class="text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">⚡</span>
-            </h1>        
-            <p class="text-slate-500 mb-8">About Flash</p>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        body { 
+            background-color: #0a0a0c; 
+            font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at 50% 50%, #16161d 0%, #0a0a0c 100%);
+        }
 
-      <p>Flash is an extremely powerful Website Viewer made by @ItsMeh1 on github. Flash provides its users with unlimited access to the internet. <br> Flash's sole purpose is to provide access of the internet to all users, anywhere on the internet. The site gets updated regularly.</p>
-      
-            <a href="itsmeh1.github.io/Flash/" class="px-8 py-4 bg-slate-200 text-[#0a0a0c] font-bold rounded-xl hover:scale-105 transition-transform inline-flex items-center gap-2">
-            <i data-lucide="home"></i> Return to Hub</a>
+        .grid-bg {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glass-card {
+            background: rgba(28, 28, 33, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen relative flex items-center justify-center overflow-x-hidden">
+    
+    <!-- Decorative Elements -->
+    <div class="fixed inset-0 grid-bg pointer-events-none"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-yellow-500/5 blur-[120px] rounded-full"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full"></div>
+
+    <div class="relative z-10 max-w-3xl w-full p-6 md:p-12">
+        <div class="text-center mb-12 animate-float">
+            <h1 class="text-7xl md:text-8xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 glow-text inline-block">
+                FLASH<span class="text-yellow-400 drop-shadow-[0_0_25px_rgba(250,204,21,0.6)]">⚡</span>
+            </h1>
+            <p class="text-yellow-500/80 font-mono text-xs tracking-[0.4em] uppercase mt-4 font-bold">Protocol v4.0.2</p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-8 md:p-10 shadow-2xl space-y-8">
+            <div class="space-y-4">
+                <h2 class="text-xl font-bold flex items-center gap-2">
+                    <i data-lucide="info" class="text-yellow-400 w-5 h-5"></i>
+                    The Vision
+                </h2>
+                <p class="text-slate-400 leading-relaxed text-lg">
+                    Flash is an extremely powerful Website Viewer crafted by <span class="text-white font-semibold">@ItsMeh1</span>. 
+                    It was engineered to bypass limitations and provide users with a clean, high-performance gateway to the digital world.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                    <div class="text-yellow-400 mb-2"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                    <h3 class="font-bold mb-1">Encrypted Browsing</h3>
+                    <p class="text-xs text-slate-500 leading-snug">Uses AES-256 standard encryption for all metadata processing.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                    <div class="text-blue-400 mb-2"><i data-lucide="zap" class="w-6 h-6"></i></div>
+                    <h3 class="font-bold mb-1">Turbo Engine</h3>
+                    <p class="text-xs text-slate-500 leading-snug">Optimized node routing for low-latency web access globally.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-500 text-sm italic text-center border-t border-white/5 pt-8">
+                "Our sole purpose is to provide access to the internet for all users, anywhere, without restrictions."
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="https://itsmeh1.github.io/Flash/" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-extrabold rounded-2xl hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                    <i data-lucide="home" class="w-5 h-5"></i> 
+                    Return to Hub
+                </a>
+                <a href="https://github.com/ItsMeh1" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white/5 text-white font-bold rounded-2xl border border-white/10 hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="github" class="w-5 h-5"></i> 
+                    Developer
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center justify-center gap-6">
+            <span>Last Updated: Feb 2026</span>
+            <div class="w-1.5 h-1.5 bg-yellow-500/20 rounded-full"></div>
+            <span>Status: Operational</span>
+        </div>
     </div>
-    <script>lucide.createIcons();</script>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
