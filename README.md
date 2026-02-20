@@ -21,4 +21,4 @@ Welcome to Flash!
 
 # Updates
 
-Flash update 1.0: Added Games Hub (Currently 0 games.) RUNNING ON FR0NT END.
+Flash1 is officially discontinued. Check out the new repo, Flash, by ItsMeh1 instead.
